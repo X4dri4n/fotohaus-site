@@ -1,0 +1,2 @@
+# fotohaus-site
+Privacy information
