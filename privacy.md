@@ -6,7 +6,7 @@ permalink: /privacy
 ---
 
 # Privacy Policy
-Last updated: September 2026
+Last updated: October 2026
 
 ## The short version
 
@@ -39,6 +39,10 @@ Fotohaus uses Apple's PhotoKit framework to access your photo library. It does t
 All of this happens on your device.
 
 **One consequence worth knowing:** if you have iCloud Photos enabled, restoring an item from the vault puts it back into your library, where iCloud will sync it as it would any other photo. Moving something into the vault takes it out of that sync; restoring it puts it back in.
+
+**What the app records about your library.** Albums you create in Fotohaus are kept in the app's own database, not in your photo library. For each one it stores the name you gave it, its position in the list, and — for every photo in it — the identifier iOS assigns that photo. These records are not encrypted. They describe photos that are sitting unencrypted in your photo library anyway, so encrypting them would protect nothing; what matters is that they never leave your device, and they don't. Album names are the one piece of text here you wrote yourself, so if you would not want an album called by its name to be readable by someone with your unlocked phone and the right tools, name it something else. Albums *inside* the vault are a separate thing and are encrypted — see section 4.
+
+Earlier versions also cached a place name and coordinates for each geotagged photo so you could search by city. That was removed: looking a place name up meant sending your photo's coordinates to Apple's geocoding service, which contradicted this policy's first sentence. Search by place name is gone with it, and the app deletes any rows an earlier version had written.
 
 ## 4. Vault & Encryption
 
