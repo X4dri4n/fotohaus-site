@@ -6,7 +6,7 @@ permalink: /privacy
 ---
 
 # Privacy Policy
-Last updated: October 2026
+Last updated: November 2026
 
 ## The short version
 
@@ -46,11 +46,11 @@ Earlier versions also cached a place name and coordinates for each geotagged pho
 
 ## 4. Vault & Encryption
 
-Vault photos and videos are encrypted with AES-256 in GCM mode using Apple's CryptoKit framework, and stored in the app's sandbox. Your PIN is converted into the encryption key on your device using PBKDF2-SHA256 with 600,000 rounds. The PIN itself is never stored — only a verification fingerprint that proves the right PIN was entered. Biometric authentication is handled entirely on-device by the Secure Enclave; biometric data never leaves your device and never reaches Fotohaus.
+Vault photos, Live Photos and videos are encrypted with AES-256 in GCM mode using Apple's CryptoKit framework, and stored in the app's sandbox. Your PIN is converted into the encryption key on your device using PBKDF2-SHA256 with 600,000 rounds. The PIN itself is never stored — only a verification fingerprint that proves the right PIN was entered. Biometric authentication is handled entirely on-device by the Secure Enclave; biometric data never leaves your device and never reaches Fotohaus.
 
-**What is encrypted.** The photos and videos themselves, their thumbnails, and everything that describes them: when a photo was taken, its dimensions, its location, its EXIF, its original filename, where it came from, whether its library original was deleted, and whether you marked it a favourite. Vault album titles, cover images and member lists are encrypted too.
+**What is encrypted.** The photos and videos themselves, the movement and sound of Live Photos, their thumbnails, and everything that describes them: when a photo was taken, its dimensions, its location, its EXIF, its original filename, where it came from, whether its library original was deleted, and whether you marked it a favourite. Vault album titles, cover images and member lists are encrypted too.
 
-**What isn't.** The app's local database is not encrypted, though it is stored with iOS file protection and excluded from device backups. For each vault item it records an internal filename, the file size, whether the item is a photo or a video, and the date you added it to the vault. It also records how many albums you have and their order. Someone with access to your unlocked device and the right tools could learn how many items your vault holds, how large they are, which of them are videos, and when each was added. They could not see the items, when or where they were taken, what they were called, or which albums they are in.
+**What isn't.** The app's local database is not encrypted, though it is stored with iOS file protection and excluded from device backups. For each vault item it records an internal filename, the file size, whether the item is a photo, a Live Photo or a video, and the date you added it to the vault. It also records how many albums you have and their order. Someone with access to your unlocked device and the right tools could learn how many items your vault holds, how large they are, which of them are videos or Live Photos, and when each was added. They could not see the items, when or where they were taken, what they were called, or which albums they are in.
 
 **Deleting the app deletes the vault.** Vault contents live only in the app's sandbox and are excluded from iCloud and device backups by design. There is no copy anywhere else. Use Export Vault if you want a backup.
 
