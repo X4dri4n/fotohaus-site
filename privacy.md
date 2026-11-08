@@ -33,10 +33,12 @@ Downloads follow whatever you have already set in Settings → Photos → Cellul
 Fotohaus uses Apple's PhotoKit framework to access your photo library. It does three things with that access, and you initiate all three:
 
 - **Reads** your photos and videos, to display and organize them
-- **Deletes** an original from your library, when you move a photo into the vault. iOS always asks you to confirm this, and that confirmation cannot be suppressed by the app
+- **Deletes** an original from your library, when you move a photo into the vault, or when you choose originals to delete after sharing photos to the vault. iOS always asks you to confirm this, and that confirmation cannot be suppressed by the app
 - **Creates** a new photo in your library, when you restore an item from the vault
 
 All of this happens on your device.
+
+**Sharing into the vault.** Fotohaus also appears in the iOS Share Sheet. If you choose it, iOS hands it only the items you selected. This part of the app, its share extension, has no access to your photo library and can't read, change or delete anything in it. It uses none of the access described above.
 
 **One consequence worth knowing:** if you have iCloud Photos enabled, restoring an item from the vault puts it back into your library, where iCloud will sync it as it would any other photo. Moving something into the vault takes it out of that sync; restoring it puts it back in.
 
@@ -52,7 +54,9 @@ Vault photos, Live Photos and videos are encrypted with AES-256 in GCM mode usin
 
 **What isn't.** The app's local database is not encrypted, though it is stored with iOS file protection and excluded from device backups. For each vault item it records an internal filename, the file size, whether the item is a photo, a Live Photo or a video, and the date you added it to the vault. It also records how many albums you have and their order. Someone with access to your unlocked device and the right tools could learn how many items your vault holds, how large they are, which of them are videos or Live Photos, and when each was added. They could not see the items, when or where they were taken, what they were called, or which albums they are in.
 
-**Deleting the app deletes the vault.** Vault contents live only in the app's sandbox and are excluded from iCloud and device backups by design. There is no copy anywhere else. Use Export Vault if you want a backup.
+**Items waiting to enter the vault.** Items you share to Fotohaus are encrypted as they arrive, with a key that can lock them but not open them, and wait in a folder the app and its share extension use together until you next unlock the vault. They then move into the vault and are removed from that folder. While they wait, someone with your unlocked device and the right tools could see how many there are, how large they are and when they arrived, but not what they are. While an item is being encrypted, iOS keeps a temporary copy for the extension and deletes it when that step ends. The folder is excluded from device backups, like the vault.
+
+**Deleting the app deletes the vault**, and anything still waiting to enter it. Vault contents live only in the app's sandbox and are excluded from iCloud and device backups by design. There is no copy anywhere else. Use Export Vault if you want a backup.
 
 ## 5. Planned Connectivity — Not Available in This Version
 
@@ -73,7 +77,7 @@ Fotohaus integrates no third-party services. There are no advertising networks, 
 
 ## 7. Data Sharing
 
-There are no servers, no backend, and no data sharing. When you share a photo using iOS's Share Sheet, the destination is determined by the system extension you choose (Messages, Mail, AirDrop, and so on) — Fotohaus does not see, intercept, or log what you share.
+There are no servers, no backend, and no data sharing. When you share a photo using iOS's Share Sheet, the destination is determined by the system extension you choose (Messages, Mail, AirDrop, and so on) — Fotohaus does not see, intercept, or log what you share. Fotohaus can itself be a Share Sheet destination; items sent there stay on your device.
 
 ## 8. Children's Privacy
 
